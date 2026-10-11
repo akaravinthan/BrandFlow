@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Business Profile | BrandFlow Connect</title>
+    <meta name="description"
+        content="BrandFlow Connect helps small businesses create, manage and analyze digital marketing campaigns.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/content.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <script>try { document.documentElement.dataset.theme = localStorage.getItem("theme") || "light" } catch (e) { }</script>
+</head>
+
+<body>
+    <div class="overlay" data-close-nav></div>
+    <aside class="sidebar" aria-label="Main navigation"><a href="index.html" class="logo"><span class="logo-i"><i
+                    class="fa-solid fa-arrow-trend-up"></i></span><b>BrandFlow<small>Connect</small></b></a>
+        <nav><a href="dashboard.html" class=""><i class="fa-solid fa-gauge-high" aria-hidden="true"></i>Dashboard</a><a
+                href="campaigns.html" class=""><i class="fa-solid fa-bullhorn" aria-hidden="true"></i>Campaigns</a><a
+                href="create-campaign.html" class=""><i class="fa-solid fa-circle-plus" aria-hidden="true"></i>Create
+                Campaign</a><a href="content-studio.html" class=""><i class="fa-solid fa-wand-magic-sparkles"
+                    aria-hidden="true"></i>Content Studio</a><a href="analytics.html" class=""><i
+                    class="fa-solid fa-chart-line" aria-hidden="true"></i>Analytics</a><a href="profile.html"
+                class="active"><i class="fa-solid fa-store" aria-hidden="true"></i>Business Profile</a><a
+                href="settings.html" class=""><i class="fa-solid fa-gear" aria-hidden="true"></i>Settings</a></nav>
+        <div class="side-foot">
+            <div class="user"><span class="avatar">A</span>
+                <div><b>Aravinthan</b><small>Business Owner</small></div>
+            </div><button class="btn btn-ghost btn-block" id="logout"><i class="fa-solid fa-right-from-bracket"></i>
+                Logout</button>
+        </div>
+    </aside>
+    <div class="main">
+        <header class="topbar"><button class="icon-btn menu-btn" id="menuBtn" aria-label="Open menu"><i
+                    class="fa-solid fa-bars"></i></button>
+            <div class="tb-title">
+                <h1 id="pageTitle">Business Profile</h1>
+                <p>Manage your business information and social links.</p>
+            </div>
+            <div class="tb-actions"><button class="icon-btn" id="bell" aria-label="Notifications"><i
+                        class="fa-solid fa-bell"></i><span class="dot"></span></button><button class="icon-btn"
+                    data-theme-btn aria-label="Toggle theme"><i class="fa-solid fa-moon"></i></button><a
+                    href="profile.html" class="avatar" aria-label="Profile">A</a></div>
+        </header>
+        <main>
+            <form class="card" id="pf" novalidate>
+                <div class="logo-up">
+                    <div class="logo-pv" id="logoPv"><i class="fa-solid fa-store"></i></div>
+                    <div><label class="btn btn-ghost btn-sm" for="logo">Upload Logo</label><input id="logo" type="file"
+                            accept="image/*" hidden>
+                        <p class="muted">PNG or JPG, up to 1 MB.</p>
+                    </div>
+                </div>
+                <div class="form-grid">
+                    <div class="field"><label for="name">Business Name</label><input id="name" type="text"
+                            placeholder="Business name"></div>
+                    <div class="field"><label for="cat">Category</label><select id="cat">
+                            <option value="">Select</option>
+                            <option>Restaurant</option>
+                            <option>Fashion</option>
+                            <option>Education</option>
+                            <option>Beauty & Salon</option>
+                            <option>Fitness</option>
+                            <option>Home Services</option>
+                            <option>Electronics</option>
+                            <option>Local Store</option>
+                            <option>Freelancer</option>
+                            <option>Startup</option>
+                        </select></div>
+                    <div class="field"><label for="phone">Phone</label><input id="phone" type="tel"
+                            placeholder="+91 98765 43210"></div>
+                    <div class="field"><label for="email">Email</label><input id="email" type="email"
+                            placeholder="you@business.com"></div>
+                    <div class="field"><label for="web">Website</label><input id="web" type="url"
+                            placeholder="https://"></div>
+                    <div class="field"><label for="addr">Address</label><input id="addr" type="text"
+                            placeholder="Street, City"></div>
+                    <div class="field"><label for="ig">Instagram</label><input id="ig" type="text"
+                            placeholder="@handle"></div>
+                    <div class="field"><label for="fb">Facebook</label><input id="fb" type="text"
+                            placeholder="facebook.com/page"></div>
+                    <div class="field"><label for="wa">WhatsApp</label><input id="wa" type="tel"
+                            placeholder="+91 98765 43210"></div>
+                    <div class="field full"><label for="desc">Description</label><textarea id="desc" rows="4"
+                            placeholder="Tell customers what makes you special"></textarea></div>
+                </div>
+                <p class="err" id="err" role="alert"></p><button class="btn btn-primary" type="submit">Save
+                    Profile</button>
+            </form>
+        </main>
+    </div>
+    <script src="js/main.js"></script>
+    <script src="js/profile.js"></script>
+</body>
+
+</html>

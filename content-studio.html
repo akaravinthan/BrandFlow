@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Content Studio | BrandFlow Connect</title>
+    <meta name="description"
+        content="BrandFlow Connect helps small businesses create, manage and analyze digital marketing campaigns.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/content.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <script>try { document.documentElement.dataset.theme = localStorage.getItem("theme") || "light" } catch (e) { }</script>
+</head>
+
+<body>
+    <div class="overlay" data-close-nav></div>
+    <aside class="sidebar" aria-label="Main navigation"><a href="index.html" class="logo"><span class="logo-i"><i
+                    class="fa-solid fa-arrow-trend-up"></i></span><b>BrandFlow<small>Connect</small></b></a>
+        <nav><a href="dashboard.html" class=""><i class="fa-solid fa-gauge-high" aria-hidden="true"></i>Dashboard</a><a
+                href="campaigns.html" class=""><i class="fa-solid fa-bullhorn" aria-hidden="true"></i>Campaigns</a><a
+                href="create-campaign.html" class=""><i class="fa-solid fa-circle-plus" aria-hidden="true"></i>Create
+                Campaign</a><a href="content-studio.html" class="active"><i class="fa-solid fa-wand-magic-sparkles"
+                    aria-hidden="true"></i>Content Studio</a><a href="analytics.html" class=""><i
+                    class="fa-solid fa-chart-line" aria-hidden="true"></i>Analytics</a><a href="profile.html"
+                class=""><i class="fa-solid fa-store" aria-hidden="true"></i>Business Profile</a><a href="settings.html"
+                class=""><i class="fa-solid fa-gear" aria-hidden="true"></i>Settings</a></nav>
+        <div class="side-foot">
+            <div class="user"><span class="avatar">A</span>
+                <div><b>Aravinthan</b><small>Business Owner</small></div>
+            </div><button class="btn btn-ghost btn-block" id="logout"><i class="fa-solid fa-right-from-bracket"></i>
+                Logout</button>
+        </div>
+    </aside>
+    <div class="main">
+        <header class="topbar"><button class="icon-btn menu-btn" id="menuBtn" aria-label="Open menu"><i
+                    class="fa-solid fa-bars"></i></button>
+            <div class="tb-title">
+                <h1 id="pageTitle">Content Studio</h1>
+                <p>Create engaging social media content for your next campaign.</p>
+            </div>
+            <div class="tb-actions"><button class="icon-btn" id="bell" aria-label="Notifications"><i
+                        class="fa-solid fa-bell"></i><span class="dot"></span></button><button class="icon-btn"
+                    data-theme-btn aria-label="Toggle theme"><i class="fa-solid fa-moon"></i></button><a
+                    href="profile.html" class="avatar" aria-label="Profile">A</a></div>
+        </header>
+        <main>
+            <div class="two">
+                <section class="card">
+                    <h2>Content Generator</h2>
+                    <div class="form-grid">
+                        <div class="field"><label for="gBiz">Business Name</label><input id="gBiz" type="text"
+                                placeholder="e.g. Urban Threads"></div>
+                        <div class="field"><label for="gProd">Product / Service</label><input id="gProd" type="text"
+                                placeholder="e.g. Summer collection"></div>
+                        <div class="field"><label for="gType">Campaign Type</label><select id="gType">
+                                <option value="">Select</option>
+                                <option>Brand Awareness</option>
+                                <option>Product Promotion</option>
+                                <option>Offer Promotion</option>
+                                <option>Lead Generation</option>
+                                <option>Event Promotion</option>
+                                <option>Customer Engagement</option>
+                            </select></div>
+                        <div class="field"><label for="gOffer">Offer</label><input id="gOffer" type="text"
+                                placeholder="e.g. Flat 30% off"></div>
+                        <div class="field"><label for="gAud">Target Audience</label><input id="gAud" type="text"
+                                placeholder="e.g. College students"></div>
+                        <div class="field"><label for="gPlat">Platform</label><select id="gPlat">
+                                <option value="">Select</option>
+                                <option>Instagram</option>
+                                <option>Facebook</option>
+                                <option>WhatsApp</option>
+                                <option>LinkedIn</option>
+                            </select></div>
+                        <div class="field"><label for="gTone">Tone</label><select id="gTone">
+                                <option value="">Select</option>
+                                <option>Professional</option>
+                                <option>Friendly</option>
+                                <option>Creative</option>
+                                <option>Exciting</option>
+                                <option>Promotional</option>
+                            </select></div>
+                        <div class="field"><label for="gImg">Image (optional)</label><input id="gImg" type="file"
+                                accept="image/*"></div>
+                    </div>
+                    <p class="err" id="gErr" role="alert"></p><button class="btn btn-primary btn-block" id="gen">✨
+                        Generate Content</button>
+                    <div id="loader" class="loader" hidden><span></span>Generating your content...</div>
+                    <div id="out" hidden>
+                        <h3 class="h-sm">Caption</h3><textarea id="cap" rows="8"
+                            aria-label="Generated caption"></textarea>
+                        <div class="row"><button class="btn btn-ghost btn-sm" id="copyCap"><i
+                                    class="fa-regular fa-copy"></i> Copy</button><button class="btn btn-ghost btn-sm"
+                                id="regen"><i class="fa-solid fa-rotate"></i> Regenerate</button><button
+                                class="btn btn-primary btn-sm" id="saveC"><i class="fa-regular fa-bookmark"></i>
+                                Save</button></div>
+                        <h3 class="h-sm">Hashtags</h3>
+                        <div id="tags" class="tags"></div><button class="btn btn-ghost btn-sm" id="copyTags">Copy
+                            Hashtags</button>
+                    </div>
+                </section>
+                <section class="card">
+                    <h2>Social Media Preview</h2>
+                    <div class="ig">
+                        <div class="ig-h"><span class="avatar">LB</span>
+                            <div><b id="pvName">LocalBiz Connect</b><small>Sponsored</small></div>
+                        </div>
+                        <div class="ig-img g0" id="pvImg"><span id="pvEmoji">🛍️</span><b id="pvOffer">Your offer
+                                here</b></div>
+                        <div class="ig-a"><span>❤️ 1,284</span><span>💬 84</span><span>↗ Share</span></div>
+                        <p class="ig-c" id="pvCap">Your caption will appear here once you generate content.</p>
+                        <p class="ig-t" id="pvTags">#LocalBusiness #ShopLocal</p>
+                    </div>
+                </section>
+            </div>
+            <section class="card">
+                <div class="card-h">
+                    <h2>Content Calendar</h2>
+                    <div class="seg"><button id="wPrev" aria-label="Previous week"><i
+                                class="fa-solid fa-chevron-left"></i></button><button id="wLabel"
+                            disabled></button><button id="wNext" aria-label="Next week"><i
+                                class="fa-solid fa-chevron-right"></i></button></div>
+                </div>
+                <div class="week" id="week"></div>
+                <form class="plan-f" id="planF" novalidate>
+                    <div class="field"><label for="pDate">Date</label><input id="pDate" type="date" placeholder="">
+                    </div>
+                    <div class="field"><label for="pPlat">Platform</label><select id="pPlat">
+                            <option value="">Select</option>
+                            <option>Instagram</option>
+                            <option>Facebook</option>
+                            <option>WhatsApp</option>
+                            <option>LinkedIn</option>
+                        </select></div>
+                    <div class="field"><label for="pType">Content type</label><select id="pType">
+                            <option value="">Select</option>
+                            <option>Image Post</option>
+                            <option>Reel</option>
+                            <option>Story</option>
+                            <option>Carousel</option>
+                            <option>Text Update</option>
+                        </select></div>
+                    <div class="field"><label for="pStat">Status</label><select id="pStat">
+                            <option value="">Planned</option>
+                            <option>Planned</option>
+                            <option>Draft</option>
+                            <option>Published</option>
+                        </select></div><button class="btn btn-primary" type="submit">+ Add Plan</button>
+                </form>
+                <p class="err" id="pErr" role="alert"></p>
+                <div id="plans"></div>
+            </section>
+            <section class="card">
+                <h2>Saved Content</h2>
+                <div id="saved"></div>
+            </section>
+        </main>
+    </div>
+    <script src="js/main.js"></script>
+    <script src="js/content.js"></script>
+</body>
+
+</html>

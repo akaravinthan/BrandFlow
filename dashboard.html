@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Good Morning, Aravinth! 👋 | BrandFlow Connect</title>
+    <meta name="description"
+        content="BrandFlow Connect helps small businesses create, manage and analyze digital marketing campaigns.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <script>try { document.documentElement.dataset.theme = localStorage.getItem("theme") || "light" } catch (e) { }</script>
+</head>
+
+<body>
+    <div class="overlay" data-close-nav></div>
+    <aside class="sidebar" aria-label="Main navigation"><a href="index.html" class="logo"><span class="logo-i"><i
+                    class="fa-solid fa-arrow-trend-up"></i></span><b>BrandFlow<small>Connect</small></b></a>
+        <nav><a href="dashboard.html" class="active"><i class="fa-solid fa-gauge-high"
+                    aria-hidden="true"></i>Dashboard</a><a href="campaigns.html" class=""><i
+                    class="fa-solid fa-bullhorn" aria-hidden="true"></i>Campaigns</a><a href="create-campaign.html"
+                class=""><i class="fa-solid fa-circle-plus" aria-hidden="true"></i>Create Campaign</a><a
+                href="content-studio.html" class=""><i class="fa-solid fa-wand-magic-sparkles"
+                    aria-hidden="true"></i>Content Studio</a><a href="analytics.html" class=""><i
+                    class="fa-solid fa-chart-line" aria-hidden="true"></i>Analytics</a><a href="profile.html"
+                class=""><i class="fa-solid fa-store" aria-hidden="true"></i>Business Profile</a><a href="settings.html"
+                class=""><i class="fa-solid fa-gear" aria-hidden="true"></i>Settings</a></nav>
+        <div class="side-foot">
+            <div class="user"><span class="avatar">A</span>
+                <div><b>Aravinthan</b><small>Business Owner</small></div>
+            </div><button class="btn btn-ghost btn-block" id="logout"><i class="fa-solid fa-right-from-bracket"></i>
+                Logout</button>
+        </div>
+    </aside>
+    <div class="main">
+        <header class="topbar"><button class="icon-btn menu-btn" id="menuBtn" aria-label="Open menu"><i
+                    class="fa-solid fa-bars"></i></button>
+            <div class="tb-title">
+                <h1 id="pageTitle">Good Morning, Aravinth! 👋</h1>
+                <p>Here’s an overview of your marketing performance.</p>
+            </div>
+            <div class="tb-actions"><button class="icon-btn" id="bell" aria-label="Notifications"><i
+                        class="fa-solid fa-bell"></i><span class="dot"></span></button><button class="icon-btn"
+                    data-theme-btn aria-label="Toggle theme"><i class="fa-solid fa-moon"></i></button><a
+                    href="profile.html" class="avatar" aria-label="Profile">A</a></div>
+        </header>
+        <main>
+            <section class="stats">
+                <article class="card stat"><span class="ico"><i class="fa-solid fa-users"></i></span><small>Total
+                        Reach</small><b id="st-reach" data-count="0">0</b>
+                    <p><span class="up"><i class="fa-solid fa-arrow-up"></i> +12.5%</span> vs last month</p>
+                </article>
+                <article class="card stat"><span class="ico"><i
+                            class="fa-solid fa-heart"></i></span><small>Engagement</small><b id="st-eng"
+                        data-count="0">0</b>
+                    <p><span class="up"><i class="fa-solid fa-arrow-up"></i> +8.4%</span> vs last month</p>
+                </article>
+                <article class="card stat"><span class="ico"><i
+                            class="fa-solid fa-user-plus"></i></span><small>Leads</small><b id="st-leads"
+                        data-count="0">0</b>
+                    <p><span class="up"><i class="fa-solid fa-arrow-up"></i> +15.2%</span> vs last month</p>
+                </article>
+                <article class="card stat"><span class="ico"><i class="fa-solid fa-bullhorn"></i></span><small>Active
+                        Campaigns</small><b id="st-active" data-count="0">0</b>
+                    <p><span class="up"><i class="fa-solid fa-arrow-up"></i> +2</span> this month</p>
+                </article>
+            </section>
+            <section class="card">
+                <div class="card-h">
+                    <h2>Campaign Performance</h2>
+                    <div class="ctrl">
+                        <div class="seg" role="group" aria-label="Metric"><button class="active"
+                                data-metric="reach">Reach</button><button
+                                data-metric="engagement">Engagement</button><button data-metric="leads">Leads</button>
+                        </div>
+                        <div class="seg" role="group" aria-label="Range"><button class="active" data-range="7">7
+                                Days</button><button data-range="30">30 Days</button><button data-range="90">90
+                                Days</button></div>
+                    </div>
+                </div>
+                <div id="chart" class="chart"></div>
+            </section>
+            <section class="card">
+                <div class="card-h">
+                    <h2>Recent Campaigns</h2><a class="btn btn-ghost btn-sm" href="campaigns.html">View all</a>
+                </div>
+                <div class="tbl-wrap">
+                    <table class="tbl">
+                        <thead>
+                            <tr>
+                                <th>Campaign</th>
+                                <th>Platform</th>
+                                <th>Reach</th>
+                                <th>Engagement</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="recent"></tbody>
+                    </table>
+                </div>
+            </section>
+            <section>
+                <h2 class="h-sm">Quick Actions</h2>
+                <div class="quick"><a class="btn btn-primary" href="create-campaign.html"><i
+                            class="fa-solid fa-plus"></i> Create Campaign</a><a class="btn btn-ghost"
+                        href="content-studio.html"><i class="fa-solid fa-pen-nib"></i> Create Content</a><a
+                        class="btn btn-ghost" href="analytics.html"><i class="fa-solid fa-chart-line"></i> View
+                        Analytics</a><a class="btn btn-ghost" href="profile.html"><i class="fa-solid fa-store"></i> Edit
+                        Profile</a></div>
+            </section>
+        </main>
+    </div>
+    <script src="js/main.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+
+</html>

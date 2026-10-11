@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Settings | BrandFlow Connect</title>
+    <meta name="description"
+        content="BrandFlow Connect helps small businesses create, manage and analyze digital marketing campaigns.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/content.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <script>try { document.documentElement.dataset.theme = localStorage.getItem("theme") || "light" } catch (e) { }</script>
+</head>
+
+<body>
+    <div class="overlay" data-close-nav></div>
+    <aside class="sidebar" aria-label="Main navigation"><a href="index.html" class="logo"><span class="logo-i"><i
+                    class="fa-solid fa-arrow-trend-up"></i></span><b>BrandFlow<small>Connect</small></b></a>
+        <nav><a href="dashboard.html" class=""><i class="fa-solid fa-gauge-high" aria-hidden="true"></i>Dashboard</a><a
+                href="campaigns.html" class=""><i class="fa-solid fa-bullhorn" aria-hidden="true"></i>Campaigns</a><a
+                href="create-campaign.html" class=""><i class="fa-solid fa-circle-plus" aria-hidden="true"></i>Create
+                Campaign</a><a href="content-studio.html" class=""><i class="fa-solid fa-wand-magic-sparkles"
+                    aria-hidden="true"></i>Content Studio</a><a href="analytics.html" class=""><i
+                    class="fa-solid fa-chart-line" aria-hidden="true"></i>Analytics</a><a href="profile.html"
+                class=""><i class="fa-solid fa-store" aria-hidden="true"></i>Business Profile</a><a href="settings.html"
+                class="active"><i class="fa-solid fa-gear" aria-hidden="true"></i>Settings</a></nav>
+        <div class="side-foot">
+            <div class="user"><span class="avatar">A</span>
+                <div><b>Aravinthan</b><small>Business Owner</small></div>
+            </div><button class="btn btn-ghost btn-block" id="logout"><i class="fa-solid fa-right-from-bracket"></i>
+                Logout</button>
+        </div>
+    </aside>
+    <div class="main">
+        <header class="topbar"><button class="icon-btn menu-btn" id="menuBtn" aria-label="Open menu"><i
+                    class="fa-solid fa-bars"></i></button>
+            <div class="tb-title">
+                <h1 id="pageTitle">Settings</h1>
+                <p>Customize your workspace.</p>
+            </div>
+            <div class="tb-actions"><button class="icon-btn" id="bell" aria-label="Notifications"><i
+                        class="fa-solid fa-bell"></i><span class="dot"></span></button><button class="icon-btn"
+                    data-theme-btn aria-label="Toggle theme"><i class="fa-solid fa-moon"></i></button><a
+                    href="profile.html" class="avatar" aria-label="Profile">A</a></div>
+        </header>
+        <main>
+            <div class="set">
+                <section class="card">
+                    <h2>Appearance</h2>
+                    <div class="seg"><label class="seg-l"><input type="radio" name="theme" value="light"> ☀
+                            Light</label><label class="seg-l"><input type="radio" name="theme" value="dark"> 🌙
+                            Dark</label></div>
+                </section>
+                <section class="card">
+                    <h2>Notifications</h2><label class="tg-row"><span><b>Campaign reminders</b><small>Alerts before
+                                campaigns start or end</small></span><input type="checkbox" id="nRem" class="toggle"
+                            checked></label><label class="tg-row"><span><b>Performance updates</b><small>Weekly summary
+                                of reach and engagement</small></span><input type="checkbox" id="nPerf" class="toggle"
+                            checked></label><label class="tg-row"><span><b>Marketing tips</b><small>Ideas to improve
+                                your content</small></span><input type="checkbox" id="nTips" class="toggle"></label>
+                </section>
+                <section class="card">
+                    <h2>Account</h2>
+                    <div class="row"><button class="btn btn-ghost" id="chPw">Change password</button><button
+                            class="btn btn-ghost" id="logout2">Logout</button></div>
+                </section>
+                <section class="card">
+                    <h2>Privacy</h2>
+                    <p>All your data — campaigns, content, profile and settings — is stored only in this browser using
+                        LocalStorage. Nothing is sent to a server.</p><button class="btn btn-danger" id="reset">Reset
+                        all data</button>
+                </section>
+            </div>
+        </main>
+    </div>
+    <script src="js/main.js"></script>
+    <script src="js/settings.js"></script>
+</body>
+
+</html>

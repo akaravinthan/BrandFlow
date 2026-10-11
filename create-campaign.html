@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Create Campaign | BrandFlow Connect</title>
+    <meta name="description"
+        content="BrandFlow Connect helps small businesses create, manage and analyze digital marketing campaigns.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/campaigns.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <script>try { document.documentElement.dataset.theme = localStorage.getItem("theme") || "light" } catch (e) { }</script>
+</head>
+
+<body>
+    <div class="overlay" data-close-nav></div>
+    <aside class="sidebar" aria-label="Main navigation"><a href="index.html" class="logo"><span class="logo-i"><i
+                    class="fa-solid fa-arrow-trend-up"></i></span><b>BrandFlow<small>Connect</small></b></a>
+        <nav><a href="dashboard.html" class=""><i class="fa-solid fa-gauge-high" aria-hidden="true"></i>Dashboard</a><a
+                href="campaigns.html" class=""><i class="fa-solid fa-bullhorn" aria-hidden="true"></i>Campaigns</a><a
+                href="create-campaign.html" class="active"><i class="fa-solid fa-circle-plus"
+                    aria-hidden="true"></i>Create Campaign</a><a href="content-studio.html" class=""><i
+                    class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i>Content Studio</a><a
+                href="analytics.html" class=""><i class="fa-solid fa-chart-line" aria-hidden="true"></i>Analytics</a><a
+                href="profile.html" class=""><i class="fa-solid fa-store" aria-hidden="true"></i>Business Profile</a><a
+                href="settings.html" class=""><i class="fa-solid fa-gear" aria-hidden="true"></i>Settings</a></nav>
+        <div class="side-foot">
+            <div class="user"><span class="avatar">A</span>
+                <div><b>Aravinthan</b><small>Business Owner</small></div>
+            </div><button class="btn btn-ghost btn-block" id="logout"><i class="fa-solid fa-right-from-bracket"></i>
+                Logout</button>
+        </div>
+    </aside>
+    <div class="main">
+        <header class="topbar"><button class="icon-btn menu-btn" id="menuBtn" aria-label="Open menu"><i
+                    class="fa-solid fa-bars"></i></button>
+            <div class="tb-title">
+                <h1 id="pageTitle">Create Campaign</h1>
+                <p>Build a campaign in six simple steps.</p>
+            </div>
+            <div class="tb-actions"><button class="icon-btn" id="bell" aria-label="Notifications"><i
+                        class="fa-solid fa-bell"></i><span class="dot"></span></button><button class="icon-btn"
+                    data-theme-btn aria-label="Toggle theme"><i class="fa-solid fa-moon"></i></button><a
+                    href="profile.html" class="avatar" aria-label="Profile">A</a></div>
+        </header>
+        <main>
+            <div class="card">
+                <ol class="stepper" id="stepper">
+                    <li data-s="1"><span>1</span>Business</li>
+                    <li data-s="2"><span>2</span>Campaign</li>
+                    <li data-s="3"><span>3</span>Audience</li>
+                    <li data-s="4"><span>4</span>Platform</li>
+                    <li data-s="5"><span>5</span>Budget</li>
+                    <li data-s="6"><span>6</span>Preview</li>
+                </ol>
+                <div class="step-p" data-p="1">
+                    <h2>Business Information</h2>
+                    <div class="form-grid">
+                        <div class="field"><label for="bName">Business Name</label><input id="bName" type="text"
+                                placeholder="e.g. Urban Threads"></div>
+                        <div class="field"><label for="bCat">Business Category</label><select id="bCat">
+                                <option value="">Select</option>
+                                <option>Restaurant</option>
+                                <option>Fashion</option>
+                                <option>Education</option>
+                                <option>Beauty & Salon</option>
+                                <option>Fitness</option>
+                                <option>Home Services</option>
+                                <option>Electronics</option>
+                                <option>Local Store</option>
+                                <option>Freelancer</option>
+                                <option>Startup</option>
+                            </select></div>
+                        <div class="field"><label for="bLoc">Business Location</label><input id="bLoc" type="text"
+                                placeholder="City, State"></div>
+                        <div class="field"><label for="bPhone">Phone Number</label><input id="bPhone" type="tel"
+                                placeholder="+91 98765 43210"></div>
+                        <div class="field"><label for="bWeb">Website</label><input id="bWeb" type="url"
+                                placeholder="https://example.com"></div>
+                        <div class="field"><label for="bIg">Instagram Username</label><input id="bIg" type="text"
+                                placeholder="@yourbusiness"></div>
+                    </div>
+                </div>
+                <div class="step-p" data-p="2" hidden>
+                    <h2>Campaign Details</h2>
+                    <div class="form-grid">
+                        <div class="field"><label for="cName">Campaign Name</label><input id="cName" type="text"
+                                placeholder="e.g. Diwali Special Offer"></div>
+                        <div class="field"><label for="cObj">Campaign Objective</label><select id="cObj">
+                                <option value="">Select</option>
+                                <option>Brand Awareness</option>
+                                <option>Product Promotion</option>
+                                <option>Offer Promotion</option>
+                                <option>Lead Generation</option>
+                                <option>Event Promotion</option>
+                                <option>Customer Engagement</option>
+                            </select></div>
+                        <div class="field"><label for="cStart">Start Date</label><input id="cStart" type="date"
+                                placeholder=""></div>
+                        <div class="field"><label for="cEnd">End Date</label><input id="cEnd" type="date"
+                                placeholder=""></div>
+                        <div class="field full"><label for="cDesc">Campaign Description</label><textarea id="cDesc"
+                                rows="4" placeholder="What are you promoting?"></textarea></div>
+                    </div>
+                </div>
+                <div class="step-p" data-p="3" hidden>
+                    <h2>Target Audience</h2><label class="lbl">Age group</label>
+                    <div class="chips" data-g="ages"><button type="button" class="chip"
+                            data-v="18–24">18–24</button><button type="button" class="chip"
+                            data-v="25–34">25–34</button><button type="button" class="chip"
+                            data-v="35–44">35–44</button><button type="button" class="chip"
+                            data-v="45–54">45–54</button><button type="button" class="chip" data-v="55+">55+</button>
+                    </div>
+                    <div class="form-grid">
+                        <div class="field"><label for="gender">Gender</label><select id="gender">
+                                <option value="">All</option>
+                                <option>All</option>
+                                <option>Male</option>
+                                <option>Female</option>
+                            </select></div>
+                        <div class="field"><label for="aloc">Location</label><select id="aloc">
+                                <option value="">Local</option>
+                                <option>Local</option>
+                                <option>City</option>
+                                <option>District</option>
+                                <option>State</option>
+                                <option>India</option>
+                            </select></div>
+                    </div><label class="lbl">Interests</label>
+                    <div class="chips" data-g="interests"><button type="button" class="chip"
+                            data-v="Fashion">Fashion</button><button type="button" class="chip"
+                            data-v="Food">Food</button><button type="button" class="chip"
+                            data-v="Education">Education</button><button type="button" class="chip"
+                            data-v="Technology">Technology</button><button type="button" class="chip"
+                            data-v="Fitness">Fitness</button><button type="button" class="chip"
+                            data-v="Shopping">Shopping</button><button type="button" class="chip"
+                            data-v="Travel">Travel</button><button type="button" class="chip"
+                            data-v="Beauty">Beauty</button></div>
+                </div>
+                <div class="step-p" data-p="4" hidden>
+                    <h2>Select Platforms</h2>
+                    <div class="plat-grid" id="plats"><button type="button" class="plat" data-v="Instagram"
+                            aria-pressed="false"><i class="fa-brands fa-instagram"></i><b>Instagram</b></button><button
+                            type="button" class="plat" data-v="Facebook" aria-pressed="false"><i
+                                class="fa-brands fa-facebook"></i><b>Facebook</b></button><button type="button"
+                            class="plat" data-v="WhatsApp" aria-pressed="false"><i
+                                class="fa-brands fa-whatsapp"></i><b>WhatsApp</b></button><button type="button"
+                            class="plat" data-v="LinkedIn" aria-pressed="false"><i
+                                class="fa-brands fa-linkedin"></i><b>LinkedIn</b></button></div>
+                </div>
+                <div class="step-p" data-p="5" hidden>
+                    <h2>Budget</h2>
+                    <div class="form-grid">
+                        <div class="field"><label for="daily">Daily Budget: ₹<span id="dailyV">500</span></label><input
+                                id="daily" type="range" min="100" max="10000" step="50" value="500"></div>
+                        <div class="field"><label for="total">Total Budget (₹)</label><input id="total" type="number"
+                                placeholder="" min="0"></div>
+                    </div>
+                    <div class="est">
+                        <div><small>Estimated Reach</small><b id="eReach">0</b></div>
+                        <div><small>Estimated Clicks</small><b id="eClicks">0</b></div>
+                        <div><small>Estimated Leads</small><b id="eLeads">0</b></div>
+                    </div>
+                </div>
+                <div class="step-p" data-p="6" hidden>
+                    <h2>Campaign Preview</h2>
+                    <dl class="pv" id="pv"></dl>
+                </div>
+                <p class="err" id="stepErr" role="alert"></p>
+                <div class="wiz-btns"><button class="btn btn-ghost" id="back">Back</button><span id="finalBtns"
+                        hidden><button class="btn btn-ghost" id="editBtn">Edit</button> <button class="btn btn-ghost"
+                            id="draft">Save Draft</button> <button class="btn btn-primary" id="launch"><i
+                                class="fa-solid fa-rocket"></i> Launch Campaign</button></span><button
+                        class="btn btn-primary" id="next">Next</button></div>
+            </div>
+        </main>
+    </div>
+    <script src="js/main.js"></script>
+    <script src="js/create-campaign.js"></script>
+</body>
+
+</html>

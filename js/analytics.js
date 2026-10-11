@@ -1,0 +1,19 @@
+(function () {
+    let r = 7, pf = ""; const sumBy = (cs, fn) => cs.reduce((a, c) => a + fn(c), 0);
+    function data() { const f = r / 30; return loadCampaigns().filter(c => !pf || (c.platform || []).includes(pf)).map(c => { const sh = pf ? 1 / (c.platform.length || 1) : 1; return { ...c, reach: c.reach * sh * f, clicks: c.clicks * sh * f, leads: c.leads * sh * f } }) }
+    function update() {
+        const cs = data(), reach = sumBy(cs, c => c.reach), eng = sumBy(cs, c => c.reach * c.engagement / 100), clicks = sumBy(cs, c => c.clicks), conv = sumBy(cs, c => c.leads), rate = clicks ? (conv / clicks * 100).toFixed(1) : "0.0";
+        $("#cards").innerHTML = [["Total Reach", fmt(reach), "fa-users"], ["Engagement", fmt(eng), "fa-heart"], ["Clicks", Math.round(clicks).toLocaleString("en-IN"), "fa-arrow-pointer"], ["Conversions", Math.round(conv).toLocaleString("en-IN"), "fa-bullseye"], ["Conversion Rate", rate + "%", "fa-percent"]].map(([t, v, i]) => `<article class="card stat"><span class="ico"><i class="fa-solid ${i}"></i></span><small>${t}</small><b>${v}</b></article>`).join("");
+        const n = r === 7 ? 7 : r === 30 ? 10 : 12, labels = r === 7 ? ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"] : Array.from({ length: n }, (_, i) => r === 30 ? "D" + (i + 1) * 3 : "W" + (i + 1));
+        drawChart($("#chart"), labels, [{ name: "Reach", color: "#5B5FF0", data: mkSeries(reach, n, 1) }, { name: "Engagement", color: "#06B6D4", data: mkSeries(eng, n, 2) }, { name: "Clicks", color: "#8B5CF6", data: mkSeries(clicks, n, 3) }]);
+        const segs = [["Likes", 54, "#5B5FF0"], ["Comments", 16, "#06B6D4"], ["Shares", 12, "#F59E0B"], ["Saves", 18, "#10B981"]]; let o = 25;
+        $("#donut").innerHTML = `<svg viewBox="0 0 42 42" role="img" aria-label="Engagement breakdown">${segs.map(([, v, c]) => { const s = `<circle r="15.9155" cx="21" cy="21" fill="none" stroke="${c}" stroke-width="6" stroke-dasharray="${v} ${100 - v}" stroke-dashoffset="${o}"/>`; o -= v; return s }).join("")}<text x="21" y="22.5" text-anchor="middle" font-size="5" font-weight="700" fill="currentColor">${fmt(eng)}</text></svg><ul>${segs.map(([n, v, c]) => `<li><i style="background:${c}"></i>${n}<b>${v}%</b></li>`).join("")}</ul>`;
+        const ic = { Instagram: "fa-instagram", Facebook: "fa-facebook", WhatsApp: "fa-whatsapp", LinkedIn: "fa-linkedin" }, all = loadCampaigns();
+        $("#plat").innerHTML = Object.keys(ic).map(p => { const m = all.filter(c => (c.platform || []).includes(p) && c.reach > 0), rc = sumBy(m, c => c.reach / c.platform.length) * r / 30, en = m.length ? sumBy(m, c => c.engagement) / m.length : 0; return `<article class="card pc"><i class="fa-brands ${ic[p]}"></i><h3>${p}</h3><div class="kv"><div><small>Reach</small><b>${fmt(rc)}</b></div><div><small>Engagement</small><b>${en.toFixed(1)}%</b></div></div></article>` }).join("");
+        const live = all.filter(c => c.reach > 0).sort((a, b) => b.engagement - a.engagement)[0];
+        $("#best").innerHTML = live ? `<div><p>🏆 Best Campaign</p><h3>${esc(live.name)}</h3></div><div class="kv"><div><small>Reach</small><b>${fmt(live.reach)}</b></div><div><small>Engagement</small><b>${live.engagement}%</b></div><div><small>Clicks</small><b>${live.clicks.toLocaleString("en-IN")}</b></div><div><small>Conversions</small><b>${live.leads}</b></div></div><button class="btn" data-v="${live.id}">View Campaign</button>` : `<div><h3>No campaign data yet</h3><p>Launch a campaign to see your best performer here.</p></div><a class="btn" href="create-campaign.html">+ Create Campaign</a>`
+    }
+    $$("[data-r]").forEach(b => b.addEventListener("click", () => { $$("[data-r]").forEach(x => x.classList.toggle("active", x === b)); r = +b.dataset.r; update() }));
+    $("#pf").addEventListener("change", e => { pf = e.target.value; update() });
+    $("#best").addEventListener("click", e => { const b = e.target.closest("[data-v]"); if (b) viewCampaign(+b.dataset.v) }); update()
+})();
